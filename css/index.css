@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 1000px;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.chat {
+  width: 500px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+ul {
+  list-style: none;
+}
+
+.input {
+  width: 500px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+input {
+  padding: 15px;
+  font-size: 12pt;
+  outline: none;
+}
