@@ -11,17 +11,29 @@
   </head>
   <body>
     <main>
-      <section class="chat">
-        <ul id="ulMessages">
-          <li>Mensagem</li>
+      <section class="contacts">
+        <ul>
+          <li onclick="setContactNumber(1)">Contato 1</li>
+          <li onclick="setContactNumber(2)">Contato 2</li>
+          <li onclick="setContactNumber(3)">Contato 3</li>
         </ul>
       </section>
-      <section class="input">
-        <form id="form">
-          <input type="text" id="message" placeholder="Mensagem" required autocomplete="off" />
-          <input type="submit" value="Enviar" />
-        </form>
-      </section>
+      <div>
+        <section class="chat">
+          <ul id="ulMessages">
+            <li class="text-to-left">teste um</li>
+            <li class="text-to-right">teste dois</li>
+            <li class="text-to-left">teste um</li>
+            <li class="text-to-right">teste dois</li>
+          </ul>
+        </section>
+        <section class="input">
+          <form id="form">
+            <input type="text" id="message" placeholder="Mensagem" required autocomplete="off" />
+            <input type="submit" value="Enviar" />
+          </form>
+        </section>
+      </div>
     </main>
   </body>
 </html>

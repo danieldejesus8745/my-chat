@@ -14,8 +14,21 @@ main {
   max-width: 1000px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+}
+
+.contacts {
+  padding: 20px;
+  width: 300px;
+  border: 1px solid black;
+}
+
+.contacts ul {
+  list-style: none;
+}
+
+.contacts li {
+  margin: 5px 0;
+  cursor: pointer;
 }
 
 .chat {
@@ -24,8 +37,21 @@ main {
   border: 1px solid black;
 }
 
-ul {
+.chat ul {
   list-style: none;
+}
+
+.chat li {
+  width: 100%;
+}
+
+.text-to-left {
+  background-color: lightblue;
+}
+
+.text-to-right {
+  text-align: end;
+  background-color: lightgreen;
 }
 
 .input {

@@ -1,16 +1,23 @@
 const form = document.getElementById('form');
 let id = localStorage.getItem('id') || 1;
 const ulMessages = document.getElementById('ulMessages');
+let contactNumber = 0;
 
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  const message = Object.create(null);
-  message.text = e.target.message.value.trim();
+  if (contactNumber !== 0) {
+    const message = Object.create(null);
+    message.contact = contactNumber;
+    message.text = e.target.message.value.trim();
+    message.author = 1;
 
-  addMessage(message);
-  form.reset();
-  loadMessages();
+    addMessage(message);
+    form.reset();
+    loadMessages();
+  } else {
+    alert('Selecione um contato');
+  }
 });
 
 function addMessage(message) {
@@ -27,15 +34,27 @@ function getMessages() {
 }
 
 function loadMessages() {
-  const messages = getMessages();
-
   ulMessages.innerHTML = '';
 
-  messages.forEach(message => {
-    const li = document.createElement('li');
-    li.textContent = message.text;
-    ulMessages.append(li);
-  });
+  if (contactNumber !== 0) {
+    const messages = getMessages();
+    const filteredMessage = messages
+    .filter(message => message.contact === contactNumber);
+
+    filteredMessage.forEach(message => {
+      const li = document.createElement('li');
+      li.textContent = message.text;
+      message.author == 1
+      ? li.classList.add('text-to-left')
+      : li.classList.add('text-to-rigth');
+      ulMessages.append(li);
+    });
+  }
 }
 
 loadMessages();
+
+function setContactNumber(contactId) {
+  contactNumber = contactId;
+  loadMessages();
+}
