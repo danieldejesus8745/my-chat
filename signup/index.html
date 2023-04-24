@@ -8,16 +8,17 @@
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="../css/general.css" />
   <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon" />
+  <script src="index.js" defer></script>
 </head>
 <body>
 
   <main>
     <h1>Crie Sua Conta</h1>
     <p>É simples, fácil e rápido</p>
-    <form>
-      <input type="text" placeholder="Nome" required autocomplete="off" />
-      <input type="text" placeholder="E-mail" required autocomplete="off" />
-      <input type="password" placeholder="Senha" required autocomplete="off" />
+    <form id="form">
+      <input type="text" id="name" placeholder="Nome" required autocomplete="off" />
+      <input type="email" id="email" placeholder="E-mail" required autocomplete="off" />
+      <input type="password" id="password" placeholder="Senha" required autocomplete="off" />
       <input type="submit" class="btn" value="Criar Conta" />
     </form>
     <p class="sub-form-p">Já tem conta? <a href="../login/">Acesse aqui</a></p>
