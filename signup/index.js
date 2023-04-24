@@ -1,5 +1,8 @@
 const form = document.getElementById('form');
 const url = 'http://localhost:8080/api/v1/users';
+const modalPositiveFeedback = document.getElementById('modalPositiveFeedback');
+const modalNegativeFeedback = document.getElementById('modalNegativeFeedback');
+const closeNegativeFeedback = document.getElementById('closeNegativeFeedback');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -10,11 +13,14 @@ form.addEventListener('submit', e => {
   user.password = e.target.password.value.trim();
 
   addUser(user);
-  form.reset();
+});
+
+closeNegativeFeedback.addEventListener('click', () => {
+  modalNegativeFeedback.style.display = 'none';
 });
 
 function addUser(user){
-  const headers = {
+  const options = {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -22,10 +28,14 @@ function addUser(user){
     body: JSON.stringify(user)
   }
 
-  fetch(url, headers)
+  fetch(url, options)
   .then(response => {
     if (response.status === 201) {
-      alert('Usuário cadastrado com sucesso!');
+      modalPositiveFeedback.style.display = 'flex';
+    }
+
+    if (response.status === 409) {
+      modalNegativeFeedback.style.display = 'flex';
     }
   });
 }

@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Chat | Login</title>
-  <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="../css/general.css" />
-  <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon" />
-  <script src="index.js" defer></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Chat | Login</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Crie Sua Conta</h1>
+      <p>É simples, fácil e rápido</p>
+      <form id="form">
+        <input type="text" id="name" placeholder="Nome" required autocomplete="off" />
+        <input type="email" id="email" placeholder="E-mail" required autocomplete="off" />
+        <input type="password" id="password" placeholder="Senha" required autocomplete="off" />
+        <input type="submit" class="btn" value="Criar Conta" />
+      </form>
+      <p class="sub-form-p">Já tem conta? <a href="../login/">Acesse aqui</a></p>
+    </main>
 
-  <main>
-    <h1>Crie Sua Conta</h1>
-    <p>É simples, fácil e rápido</p>
-    <form id="form">
-      <input type="text" id="name" placeholder="Nome" required autocomplete="off" />
-      <input type="email" id="email" placeholder="E-mail" required autocomplete="off" />
-      <input type="password" id="password" placeholder="Senha" required autocomplete="off" />
-      <input type="submit" class="btn" value="Criar Conta" />
-    </form>
-    <p class="sub-form-p">Já tem conta? <a href="../login/">Acesse aqui</a></p>
-  </main>
+    <div class="modalFeedback" id="modalPositiveFeedback">
+      <div class="inModal">
+        <p>Usuário cadastrado com sucesso</p>
+        <p><a href="../login/">Acesse sua Conta</a></p>
+      </div>
+    </div>
 
-</body>
+    <div class="modalFeedback" id="modalNegativeFeedback">
+      <div class="inModal">
+        <p>E-mail já cadastrado anteriormente</p>
+        <p id="closeNegativeFeedback"><a>Verificar</a></p>
+      </div>
+    </div>
+  </body>
 </html>
