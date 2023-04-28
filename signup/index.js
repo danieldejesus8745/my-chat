@@ -1,8 +1,5 @@
 const form = document.getElementById('form');
 const url = 'http://localhost:8080/api/v1/users';
-const modalPositiveFeedback = document.getElementById('modalPositiveFeedback');
-const modalNegativeFeedback = document.getElementById('modalNegativeFeedback');
-const closeNegativeFeedback = document.getElementById('closeNegativeFeedback');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -13,10 +10,6 @@ form.addEventListener('submit', e => {
   user.password = e.target.password.value.trim();
 
   addUser(user);
-});
-
-closeNegativeFeedback.addEventListener('click', () => {
-  modalNegativeFeedback.style.display = 'none';
 });
 
 function addUser(user){
@@ -31,11 +24,12 @@ function addUser(user){
   fetch(url, options)
   .then(response => {
     if (response.status === 201) {
-      modalPositiveFeedback.style.display = 'flex';
+      alert('Conta criada com sucesso');
+      location.href = '../login/';
+    } else if (response.status === 409) {
+      alert('O e-mail informado já está sendo usado por outra conta');
+    } else {
+      alert('Erro ao tentar criar conta. Por favor, entre em contato com o suporte');
     }
-
-    if (response.status === 409) {
-      modalNegativeFeedback.style.display = 'flex';
-    }
-  });
+  })
 }
